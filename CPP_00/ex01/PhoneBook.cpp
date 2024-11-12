@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lelichik <lelichik@student.42.fr>          +#+  +:+       +#+        */
+/*   By: opanikov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 14:47:32 by lelichik          #+#    #+#             */
-/*   Updated: 2024/11/09 22:23:31 by lelichik         ###   ########.fr       */
+/*   Updated: 2024/11/12 15:18:31 by opanikov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include <iostream>
-#include <iomanip> 
-#include <cctype>
 
 void PhoneBook::addContact()
 {
@@ -42,18 +39,18 @@ void PhoneBook::displayContactsIndex() const
 	while(1)
 	{
 		std::cout << "Enter the contact's index: ";
-		std::getline(std::cin, input);
+		// std::getline(std::cin, input);
 		if(!std::getline(std::cin, input))
 		{
 			if (std::cin.eof())
 			{
 				std::cout << "The end of the input has been detected (Ctrl+D). The existing program is closed" << std::endl;
-				exit (1);
+				exit (0);
 			}
 		}
 		index = atoi(input.c_str());
-		if(index < 1 || index > currentIndex)
-			std::cout << "Invalid index! Please enter the index in the range from 1 to " << currentIndex << std::endl;
+		if(index < 1 || index > countContacts)
+			std::cout << "Invalid index! Please enter the index in the range from 1 to " << countContacts << std::endl;
 		else
 			break;
 	}
@@ -87,7 +84,8 @@ int PhoneBook::displayContacts() const
 		if (contacts[i].getNickname().length() > 10)
 			std::cout << std::setw(10) << contacts[i].getNickname().substr(0, 9) + "." << "|";
 		else
-			std::cout << std::setw(10) << contacts[i].getNickname() << "|" << std::endl;
+			std::cout << std::setw(10) << contacts[i].getNickname() << "|";
+		std:: cout << std::endl;
 	}
 	return 0;
 }

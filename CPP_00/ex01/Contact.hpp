@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lelichik <lelichik@student.42.fr>          +#+  +:+       +#+        */
+/*   By: opanikov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:50:37 by lelichik          #+#    #+#             */
-/*   Updated: 2024/11/09 22:21:00 by lelichik         ###   ########.fr       */
+/*   Updated: 2024/11/12 15:18:46 by opanikov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #define CONTACT_HPP
 
 #include <string>
+#include <iostream>
+#include <iomanip> 
+#include <cctype>
 
 class Contact {
 private:

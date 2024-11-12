@@ -3,18 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lelichik <lelichik@student.42.fr>          +#+  +:+       +#+        */
+/*   By: opanikov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 14:01:44 by lelichik          #+#    #+#             */
-/*   Updated: 2024/11/09 22:23:45 by lelichik         ###   ########.fr       */
+/*   Updated: 2024/11/12 15:18:54 by opanikov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
-#include <iostream>
-#include <iomanip> 
-#include <cctype>
-#include <string>
+
 
 	void Contact::setFirstName(const std::string& name) {
 		firstName = name;
@@ -68,7 +65,7 @@ std::string getInput(const std::string& prompt)
 			if (std::cin.eof())
 			{
 				std::cout << "The end of the input has been detected (Ctrl+D). The existing program is closed" << std::endl;
-				exit (1);
+				exit (0);
 			}
 		}
 		for (size_t i = 0; i < result.length(); i++ )

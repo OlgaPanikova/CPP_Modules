@@ -3,18 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lelichik <lelichik@student.42.fr>          +#+  +:+       +#+        */
+/*   By: opanikov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 14:12:02 by lelichik          #+#    #+#             */
-/*   Updated: 2024/11/09 22:12:49 by lelichik         ###   ########.fr       */
+/*   Updated: 2024/11/12 15:19:14 by opanikov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
-#include <iostream>
-#include <iomanip> 
-#include <cctype>
 
 int main()
 {
@@ -36,7 +33,7 @@ int main()
 		if(command == "EXIT")
 			break;
 		if (std::cin.eof())
-			return 1;
+			return 0;
 	}
 	return 0;
 }
