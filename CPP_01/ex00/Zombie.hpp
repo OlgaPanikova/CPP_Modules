@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: opanikov <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lelichik <lelichik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:51:49 by opanikov          #+#    #+#             */
-/*   Updated: 2024/11/12 17:50:00 by opanikov         ###   ########.fr       */
+/*   Updated: 2024/11/17 14:43:06 by lelichik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ private:
 
 public:
 	Zombie(const std::string& name);
+	~Zombie();
 	void announce();
 };
-
-Zombie* newZombie(std::string name);
 
 #endif
