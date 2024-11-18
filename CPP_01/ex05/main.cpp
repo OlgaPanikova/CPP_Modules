@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lelichik <lelichik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/17 18:32:40 by lelichik          #+#    #+#             */
-/*   Updated: 2024/11/18 19:37:26 by lelichik         ###   ########.fr       */
+/*   Created: 2024/11/18 19:34:37 by lelichik          #+#    #+#             */
+/*   Updated: 2024/11/18 19:35:27 by lelichik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include "Harl.hpp"
 
-Weapon::Weapon(const std::string& initialType) : type(initialType) {}
-
-Weapon::~Weapon() {}
-
-const std::string& Weapon::getType() const
+int main()
 {
-	return type;
-}
-
-void Weapon::setType(const std::string& newType)
-{
-	type = newType;
+	Harl harl;
+	
+	harl.complain("DEBUG");
+	harl.complain("INFO");
+	harl.complain("WARNING");
+	harl.complain("ERROR");
 }
