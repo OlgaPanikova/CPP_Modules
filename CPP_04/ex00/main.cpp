@@ -37,5 +37,7 @@ std::cout << "\n\n<<< TEST ANIMAL CLASS >>>\n" << std::endl;
 	delete(wMeta);
 	delete(w);
 
+	system("leaks Animal");
+
 	return (0);
 }

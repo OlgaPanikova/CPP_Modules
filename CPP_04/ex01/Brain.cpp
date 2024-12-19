@@ -29,14 +29,14 @@ Brain::~Brain() {
 }
 
 void Brain::setIdea(int index, const std::string &idea) {
-        if (index >= 0 && index < 100) {
-            ideas[index] = idea;
-        }
-    }
+	if (index >= 0 && index < 100) {
+		ideas[index] = idea;
+	}
+}
 
 std::string Brain::getIdea(int index) const {
-        if (index >= 0 && index < 100) {
-            return ideas[index];
-        }
-        return "";  // Если индекс вне диапазона, возвращаем пустую строку
-    }
+	if (index >= 0 && index < 100) {
+		return ideas[index];
+	}
+	return "";
+}

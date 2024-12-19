@@ -45,6 +45,26 @@ void ScavTrap::attack(const std::string& target) {
 	}
 }
 
+void ScavTrap::beRepaired(unsigned int amount) {
+	if(this->hitPoints <= 0) {
+		std::cout << this->name << " cannot be repaired because it has no hit points left!" << std::endl;
+		return;
+	}
+	if(this->energyPoints <= 0) {
+		std::cout << this->name << " does not have enough energy points to recover" << std::endl;
+		return;
+	}
+	if(this->hitPoints + amount > 100) {
+		this->hitPoints = 100;
+		std::cout << this->name << " repaired" << " max points" << std::endl;
+	}
+	else {
+		this->hitPoints += amount;
+		std::cout << this->name << " repaired" << " for " << amount << " points" << std::endl;
+	}
+	this->energyPoints -= 1;
+}
+
 void ScavTrap:: guardGate() {
 	std::cout << "ScavTrap " << this->name << " is now in Gate keeper mode" << std::endl;
 }

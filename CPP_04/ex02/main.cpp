@@ -25,6 +25,6 @@ int main() {
 	}
 
 	// Animal *animal = new Animal();
-	// system("leaks Brain");
+	system("leaks AbstractAnimal ");
 	return 0;
 }

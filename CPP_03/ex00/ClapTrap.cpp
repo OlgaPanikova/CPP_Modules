@@ -70,6 +70,7 @@ void ClapTrap::beRepaired(unsigned int amount) {
 		std::cout << this->name << " repaired" << " max points" << std::endl;
 	}
 	else {
+		this->hitPoints += amount;
 		std::cout << this->name << " repaired" << " for " << amount << " points" << std::endl;
 	}
 	this->energyPoints -= 1;

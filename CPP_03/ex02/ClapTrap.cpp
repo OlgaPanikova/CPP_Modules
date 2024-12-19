@@ -28,10 +28,6 @@ ClapTrap::~ClapTrap() {
 	std::cout << "Destructor called" << std::endl;
 }
 
-void ClapTrap::setAttackDamage(unsigned int damage) {
-	this->attackDamage = damage;
-}
-
 void ClapTrap::attack(const std::string& target) {
 	if (this->hitPoints <= 0) {
 		std::cout << this->name << " no attack points" << std::endl;
@@ -73,6 +69,7 @@ void ClapTrap::beRepaired(unsigned int amount) {
 		std::cout << this->name << " repaired" << " max points" << std::endl;
 	}
 	else {
+		this->hitPoints += amount;
 		std::cout << this->name << " repaired" << " for " << amount << " points" << std::endl;
 	}
 	this->energyPoints -= 1;
