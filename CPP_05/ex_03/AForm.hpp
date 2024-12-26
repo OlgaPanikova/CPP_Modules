@@ -26,7 +26,7 @@ public:
   int getGrageToExecute() const;
   void beSigned(const Bureaucrat& bureaucrat);
   void execute(const Bureaucrat& executor) const;
-  virtual void executeAction(const Bureaucrat& executor) const = 0;
+  virtual void executeAction() const = 0;
   virtual AForm* clone(const std::string& target) const = 0;
   virtual const std::string& getTarget() const = 0;
   class GradeTooHighException : public std::exception {

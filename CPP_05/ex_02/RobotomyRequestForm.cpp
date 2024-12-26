@@ -26,7 +26,7 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 	std::cout << "RobotomyRequestForm destructor called" << std::endl;
 }
 
-void RobotomyRequestForm::executeAction(const Bureaucrat& executor) const {
+void RobotomyRequestForm::executeAction() const {
   std::cout << "*Drilling noises*: Dzzz... Dzzzz....Dzzzzzzz.." << std::endl;
   if (std::rand() % 2)
     std::cout << _target << " has been robotomized successfully!" << std::endl;

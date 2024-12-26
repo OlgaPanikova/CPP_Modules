@@ -17,7 +17,7 @@ public:
 	ShrubberyCreationForm(const ShrubberyCreationForm& copy);
 	ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
 	~ShrubberyCreationForm();
-  virtual void executeAction(const Bureaucrat& executor) const;
+  virtual void executeAction() const;
 	virtual AForm* clone(const std::string& target) const;
 	virtual const std::string& getTarget() const;
 };

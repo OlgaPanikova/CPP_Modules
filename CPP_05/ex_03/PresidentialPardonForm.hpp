@@ -17,7 +17,7 @@ public:
 	PresidentialPardonForm(const PresidentialPardonForm& copy);
 	PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
 	~PresidentialPardonForm();
-  void executeAction(const Bureaucrat& executor) const;
+  void executeAction() const;
 	virtual AForm* clone(const std::string& target) const;
 	virtual const std::string& getTarget() const;
 };

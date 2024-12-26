@@ -42,15 +42,15 @@ int Bureaucrat::getGrade() const {
 }
 
 void Bureaucrat::incrementGrade() {
-    if (this->grade - 1 < 1)
-        throw GradeTooHighException();
-    this->grade--;
+	if (this->grade - 1 < 1)
+		throw GradeTooHighException();
+	this->grade--;
 }
 
 void Bureaucrat::decrementGrade() {
-    if (this->grade + 1 > 150)
-        throw GradeTooLowException();
-    this->grade++;
+	if (this->grade + 1 > 150)
+		throw GradeTooLowException();
+	this->grade++;
 }
 
 const char *Bureaucrat::GradeTooHighException:: what() const throw()	{
@@ -67,11 +67,10 @@ std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat) {
 }
 
 void Bureaucrat::signForm(Form& form) {
-    try {
-        form.beSigned(*this);
-        std::cout << this->getName() << " signed " << form.getName() << std::endl;
-    } catch (const std::exception& e) {
-        std::cout << this->getName() << " couldn't sign " << form.getName()
-                  << " because " << e.what() << std::endl;
-    }
+	try {
+		form.beSigned(*this);
+		std::cout << this->getName() << " signed " << form.getName() << std::endl;
+	} catch (const std::exception& e) {
+		std::cout << this->getName() << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+	}
 }

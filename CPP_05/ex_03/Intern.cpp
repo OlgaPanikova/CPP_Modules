@@ -14,30 +14,23 @@ Intern::Intern(const Intern& copy) {
 
 Intern& Intern::operator=(const Intern& other) {
     std::cout << "Intern copy assignment operator called" << std::endl;
-
-    // Проверяем на самоприсваивание
     if (this == &other) {
-        return *this;
+      return *this;
     }
-
-    // Освобождаем старые формы
     for (int i = 0; i < 3; ++i) {
-        delete form[i];  // Удаляем старые формы
+        delete form[i];
     }
-
-    // Копируем формы из другого объекта
     for (int i = 0; i < 3; ++i) {
         form[i] = other.form[i] ? other.form[i]->clone(other.form[i]->getTarget()) : nullptr;
     }
-
-    return *this;  // Возвращаем текущий объект для поддержки цепочки присваиваний
+    return *this;
 }
 
 Intern::~Intern() {
-std::cout << "Intern destructor called" << std::endl;    
-for (int i = 0; i < 3; i++) {
-        delete form[i];
-    }
+  std::cout << "Intern destructor called" << std::endl;
+  for (int i = 0; i < 3; i++) {
+    delete form[i];
+  }
 }
 
 AForm	*Intern::makeForm(const std::string &formName, const std::string &target) {

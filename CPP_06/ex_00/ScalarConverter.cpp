@@ -27,7 +27,7 @@ bool isCharacter(const std::string& input) {
 
 bool isInteger(const std::string& input) {
     size_t idx = 0;
-    if (input[0] == '-') idx++;  // Пропускаем минус, если есть
+    if (input[0] == '-') idx++;
     for (; idx < input.length(); idx++) {
         if (!isdigit(input[idx])) {
             return false;
@@ -38,7 +38,7 @@ bool isInteger(const std::string& input) {
 
 bool isFloatingPoint(const std::string &input) {
     size_t idx = 0;
-    if (input[0] == '-') idx++;  // Пропускаем минус, если есть
+    if (input[0] == '-') idx++;
 
     for (; idx < input.length(); idx++) {
         if ((!isdigit(input[idx]) && input[idx] != 'f' && input[idx] != '.') ||
@@ -62,41 +62,31 @@ bool isFloatingPoint(const std::string &input) {
 
 bool isDoublePrecision(const std::string &input) {
     size_t idx = 0;
-
-    // Проверка на знак минус в начале строки
     if (input[0] == '-') idx++;
 
-    bool hasDot = false;  // Отметка о наличии точки
-    bool hasDigitAfterDot = false;  // Отметка о наличии цифры после точки
+    bool hasDot = false;
+    bool hasDigitAfterDot = false;
 
     for (; idx < input.length(); idx++) {
         char currentChar = input[idx];
-
-        // Обработка точки
         if (currentChar == '.') {
-            // Если точка уже была, это ошибка
             if (hasDot) {
-                return false;  // Несколько точек в числе
+                return false;
             }
             hasDot = true;
         }
-        // Обработка символа 'f' - если встречается, это float, а не double
         else if (currentChar == 'f') {
-            return false;  // Если 'f' есть в строке, это float, а не double
+            return false;
         }
-        // Обработка цифры
         else if (isdigit(currentChar)) {
             if (hasDot) {
-                hasDigitAfterDot = true;  // Мы нашли цифру после точки
+                hasDigitAfterDot = true;
             }
         }
-        // Если символ не цифра и не точка, это ошибка
         else {
             return false;
         }
     }
-
-    // Проверяем, что точка была, и после неё есть хотя бы одна цифра
     return hasDot && hasDigitAfterDot;
 }
 
@@ -111,17 +101,13 @@ DataType detectType(const std::string& input) {
 void display(DataType type, const std::string& input) {
 	if (type == CHARACTER) {
         std::cout << "Character: ";
-        
-        // Проверка на диапазон символов, которые можно вывести
         if (input[0] >= 32 && input[0] <= 126)
             std::cout << "'" << input[0] << "'" << std::endl;
         else if ((input[0] >= 0 && input[0] <= 31) || input[0] == 127)
             std::cout << "Non displayable" << std::endl;
         else
             std::cout << "Impossible" << std::endl;
-
-        // Преобразование символа в другие типы
-        char value = input[0];  // Берем первый символ строки
+        char value = input[0];
         std::cout << "Integer: " << static_cast<int>(value) << std::endl;
         std::cout << "Float: " << static_cast<float>(value) << ".0f" << std::endl;
         std::cout << "Double: " << static_cast<double>(value) << ".0" << std::endl;
@@ -206,7 +192,6 @@ void ScalarConverter::convert(const std::string& input) {
         return;
     }
     DataType type = detectType(input);
-		printf("TYPE = %u\n", type);
     if (type == INVALID_TYPE) {
         std::cerr << "Error: Invalid input\n";
         return;

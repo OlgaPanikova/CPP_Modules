@@ -17,7 +17,7 @@ public:
 	RobotomyRequestForm(const RobotomyRequestForm& copy);
 	RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
 	~RobotomyRequestForm();
-  void executeAction(const Bureaucrat& executor) const;
+	void executeAction() const;
 	virtual AForm* clone(const std::string& target) const;
 	virtual const std::string& getTarget() const;
 };

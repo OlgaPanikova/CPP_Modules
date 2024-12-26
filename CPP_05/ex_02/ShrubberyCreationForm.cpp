@@ -26,11 +26,8 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 	std::cout << "ShrubberyCreationForm destructor called" << std::endl;
 }
 
-void ShrubberyCreationForm::executeAction(const Bureaucrat& executor) const {
+void ShrubberyCreationForm::executeAction() const {
     std::ofstream file(_target + "_shrubbery");
-    if (!file.is_open())
-      throw std::ios_base::failure("Failed to open file"); // подумать где прописать try and catch 
-
     file << "       *\n"
             "      ***\n"
             "     *****\n"
