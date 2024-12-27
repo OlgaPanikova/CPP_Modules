@@ -39,14 +39,12 @@ bool isInteger(const std::string& input) {
 bool isFloatingPoint(const std::string &input) {
     size_t idx = 0;
     if (input[0] == '-') idx++;
-
     for (; idx < input.length(); idx++) {
         if ((!isdigit(input[idx]) && input[idx] != 'f' && input[idx] != '.') ||
             (input[idx] == 'f' && idx + 1 < input.length())) {
             return false;
         }
     }
-
     for (size_t idx = 0; idx < input.length(); idx++) {
         if (input[idx] == '.') {
             while (input[idx] != 'f' && idx < input.length()) idx++;
