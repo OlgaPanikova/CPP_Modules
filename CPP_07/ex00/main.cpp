@@ -7,12 +7,12 @@ int main() {
 	swap(x, y);
 	std::cout << "After swap: x = " << x << ", y = " << y << std::endl;
 
-	std::cout << "Min of 5 and 10: " << min(5, 10) << std::endl;
-	std::cout << "Max of 5 and 10: " << max(5, 10) << std::endl;
+	std::cout << "Min of 5 and 10: " << ::min(5, 10) << std::endl;
+	std::cout << "Max of 5 and 10: " << ::max(5, 10) << std::endl;
 
 	double a = 3.14, b = 2.71;
-	std::cout << "Min of 3.14 and 2.71: " << min(a, b) << std::endl;
-	std::cout << "Max of 3.14 and 2.71: " << max(a, b) << std::endl;
+	std::cout << "Min of 3.14 and 2.71: " << ::min(a, b) << std::endl;
+	std::cout << "Max of 3.14 and 2.71: " << ::max(a, b) << std::endl;
 
 	std::string str1 = "Hello cat";
 	std::string str2 = "My name is Henry";

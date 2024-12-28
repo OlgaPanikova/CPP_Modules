@@ -19,6 +19,7 @@ Span& Span::operator=(const Span& other) {
 	}
 	this->N = other.N;
   this->_numbers = other._numbers;
+  return *this;
 }
 
 Span::~Span() {
@@ -40,27 +41,25 @@ int Span::shortestSpan() const {
   std::sort(sorted.begin(), sorted.end());
   int minSpan = std::numeric_limits<int>::max();
   for (size_t i = 1; i < sorted.size(); ++i) {
-      minSpan = std::min(minSpan, sorted[i] - sorted[i - 1]);
+    minSpan = std::min(minSpan, sorted[i] - sorted[i - 1]);
   }
   return minSpan;
 }
 
-    // Нахождение самого длинного "спана"
-    int longestSpan() const {
-        if (_numbers.size() < 2) {
-            throw std::logic_error("Not enough numbers to calculate a span");
-        }
-        int min = *std::min_element(_numbers.begin(), _numbers.end());
-        int max = *std::max_element(_numbers.begin(), _numbers.end());
-        return max - min;
-    }
+int Span::longestSpan() const {
+  if (_numbers.size() < 2) {
+    throw std::logic_error("Not enough numbers to calculate a span");
+  }
+  int min = *std::min_element(_numbers.begin(), _numbers.end());
+  int max = *std::max_element(_numbers.begin(), _numbers.end());
+  return max - min;
+}
 
 
-template <typename Iterator>
-  void addRange(Iterator begin, Iterator end) {
-        size_t distance = std::distance(begin, end);
-        if (_numbers.size() + distance > _maxSize) {
-            throw std::overflow_error("Adding range exceeds Span's capacity");
-        }
-        _numbers.insert(_numbers.end(), begin, end);
-    }
+void Span::addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
+  size_t distance = std::distance(begin, end);
+  if (_numbers.size() + distance > N) {
+    throw std::overflow_error("Adding range exceeds Span's capacity");
+  }
+  _numbers.insert(_numbers.end(), begin, end);
+}
