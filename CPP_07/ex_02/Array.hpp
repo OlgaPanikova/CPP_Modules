@@ -17,6 +17,7 @@ public:
 	Array& operator=(const Array& other);
 	~Array();
 	T& operator[](unsigned int index);
+	const T& operator[](unsigned int index) const;
 	unsigned int size() const;
 };
 
@@ -71,6 +72,13 @@ T& Array<T>::operator[](unsigned int index) {
 	return data[index];
 }
 
+template <typename T>
+const T& Array<T>::operator[](unsigned int index) const {
+	if (index >= _size) {
+		throw std::out_of_range("Index out of range");
+	}
+	return data[index];
+}
 
 template <typename T>
 unsigned int Array<T>::size() const {
