@@ -12,6 +12,10 @@
 #include <set>
 #include <ctime>
 
+#include "JacobsthalGenerator.hpp"
+#include "IndexManager.hpp"
+#include "BoundedIndexGenerator.hpp"
+
 
 class PmergeMe {
 private:
@@ -49,57 +53,57 @@ public:
 
 std::vector<int> createJacobsthalSequence(int count);
 
-struct JacobsthalGenerator {
-    int n2;
-    int n1;
+// struct JacobsthalGenerator {
+//     int n2;
+//     int n1;
 
-    JacobsthalGenerator() : n2(1), n1(1) {}
+//     JacobsthalGenerator() : n2(1), n1(1) {}
 
-    int nextNumber() {
-        int current = n1 + 2 * n2;
-        n2 = n1;
-        n1 = current;
-        return current;
-    }
-};
+//     int nextNumber() {
+//         int current = n1 + 2 * n2;
+//         n2 = n1;
+//         n1 = current;
+//         return current;
+//     }
+// };
 
-// Структура для управления индексами Якобсталя
-struct IndexManager {
-    int upperBound;      // Текущая верхняя граница диапазона
-    int lowerBound;      // Текущая нижняя граница диапазона
-    int activeIndex;     // Текущий индекс
-    JacobsthalGenerator jacobGen;
+// // Структура для управления индексами Якобсталя
+// struct IndexManager {
+//     int upperBound;      // Текущая верхняя граница диапазона
+//     int lowerBound;      // Текущая нижняя граница диапазона
+//     int activeIndex;     // Текущий индекс
+//     JacobsthalGenerator jacobGen;
 
-    IndexManager() : upperBound(1), lowerBound(0), activeIndex(1) {}
+//     IndexManager() : upperBound(1), lowerBound(0), activeIndex(1) {}
 
-    int nextIndex() {
-        int result = activeIndex;
-        activeIndex--;
+//     int nextIndex() {
+//         int result = activeIndex;
+//         activeIndex--;
 
-        if (activeIndex == lowerBound) {
-            lowerBound = upperBound;
-            upperBound = jacobGen.nextNumber();
-            activeIndex = upperBound;
-        }
+//         if (activeIndex == lowerBound) {
+//             lowerBound = upperBound;
+//             upperBound = jacobGen.nextNumber();
+//             activeIndex = upperBound;
+//         }
 
-        return result - 1;
-    }
-};
+//         return result - 1;
+//     }
+// };
 
-// Структура для ограничения диапазона индексов Якобсталя
-struct BoundedIndexGenerator {
-    IndexManager indexMgr;
-    int maxLimit; // Максимальный допустимый индекс
+// // Структура для ограничения диапазона индексов Якобсталя
+// struct BoundedIndexGenerator {
+//     IndexManager indexMgr;
+//     int maxLimit; // Максимальный допустимый индекс
 
-    BoundedIndexGenerator(int limit) : maxLimit(limit) {}
+//     BoundedIndexGenerator(int limit) : maxLimit(limit) {}
 
-    int nextBoundedIndex() {
-        while (true) {
-            int index = indexMgr.nextIndex();
-            if (index < maxLimit) return index;
-        }
-    }
-};
+//     int nextBoundedIndex() {
+//         while (true) {
+//             int index = indexMgr.nextIndex();
+//             if (index < maxLimit) return index;
+//         }
+//     }
+// };
 
 template <typename T>
 int PmergeMe::FindInsertPosition(const T &container, int size, int value) {

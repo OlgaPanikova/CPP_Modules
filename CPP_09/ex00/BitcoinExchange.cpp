@@ -1,16 +1,13 @@
 #include "BitcoinExchange.hpp"
 
 BitcoinExchange::BitcoinExchange() {
-	std::cout << "BitcoinExchange default constructor called" << std::endl;
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange& copy) {
-	std::cout << "BitcoinExchange copy constructor called" << std::endl;
 	*this =  copy;
 }
 
 BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other) {
-    std::cout << "BitcoinExchange copy assignment operator called" << std::endl;
     if (this != &other) {
         this->date = other.date;
         this->rate = other.rate;
@@ -20,7 +17,6 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other) {
 }
 
 BitcoinExchange::~BitcoinExchange() {
-	std::cout << "BitcoinExchange destructor called" << std::endl;
 }
 
 void BitcoinExchange::loadDatabase(const std::string& filename) {
@@ -104,7 +100,13 @@ bool BitcoinExchange::validateAndProcessFile(const std::string& inFile) {
         }
 
         date = date.substr(0, date.find_last_not_of(" ") + 1);
-        valueStr = valueStr.substr(valueStr.find_first_not_of(" "));
+        int i = valueStr.find_first_not_of(" ");
+        if(i == -1)
+        {
+            std::cerr << "Error: bad input value " << std::endl;
+            return;
+        }
+        valueStr = valueStr.substr(i);
         if (!isValidDate(date)) {
             std::cerr << "Error: bad input => " << date << std::endl;
             return;

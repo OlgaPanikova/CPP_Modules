@@ -1,22 +1,18 @@
 #include "RPN.hpp"
 
 RPN::RPN() {
-	std::cout << "RPN default constructor called" << std::endl;
 }
 
 RPN::RPN(const RPN& copy) {
-	std::cout << "RPN copy constructor called" << std::endl;
 	*this =  copy;
 }
 
 RPN& RPN::operator=(const RPN& other) {
-  std::cout << "RPNcopy assignment operator called" << std::endl;
   (void)other;
   return *this;
 }
 
 RPN::~RPN() {
-	std::cout << "RPN destructor called" << std::endl;
 }
 
 bool RPN::isOperator(const std::string &token) {
@@ -41,9 +37,10 @@ int RPN::evaluate(const std::string &expression) {
         std::string token;
 
         while (iss >> token) {
-            if (isdigit(token[0])) { // If the token is a number
+            if (isdigit(token[0])) 
+            {
                 s.push(stringToInt(token));
-            } else if (isOperator(token)) { // If the token is an operator
+            } else if (isOperator(token)) {
                 if (s.size() < 2) throw std::runtime_error("Not enough operands");
                 int b = s.top(); s.pop();
                 int a = s.top(); s.pop();
@@ -62,6 +59,8 @@ int RPN::stringToInt(const std::string &str) {
         std::stringstream ss(str);
         int num;
         ss >> num;
-        if (ss.fail()) throw std::runtime_error("Invalid number: " + str);
+        if (ss.fail() || !ss.eof()) {
+            throw std::runtime_error("Invalid number: " + str);
+    }
         return num;
     }
